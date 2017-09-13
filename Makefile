@@ -1,12 +1,22 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2017/09/12 18:37:40 by irhett            #+#    #+#              #
+#    Updated: 2017/09/12 18:44:17 by irhett           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME		=	david
 
 CC			=	gcc
-CFLAGS		=	-Wall -Werror -Wextra
-XFLAGS		=	#-flags -for -X
-FLAGS		=	$(CFLAGS) $(XFLAGS)
+FLAGS		=	-Wall -Werror -Wextra
 
 SRC_DIR		=	src
-SRC_FILE	=	##!!##
+SRC_FILE	=	main.c client.c 
 SRCS		=	$(addprefix $(SRC_DIR)/, $(SRC_FILE))
 
 OBJ_DIR		=	obj
@@ -23,7 +33,7 @@ $(NAME): $(SRCS) | $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) $(INC_DIR) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	@$(CC) -c $^ $(CFLAGS) $(INC_DIR) -o $@
+	@$(CC) -c $^ $(FLAGS) $(INC_DIR) -o $@
 
 clean:
 	@rm -rf $(OBJ_DIR)
